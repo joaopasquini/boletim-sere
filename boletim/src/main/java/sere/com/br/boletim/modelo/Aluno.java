@@ -25,7 +25,7 @@ public class Aluno {
 	@ManyToOne
 	private Responsavel pai;
 	@ManyToOne
-	private Curso curso;
+	private Disciplina disciplina;
 	@OneToMany(mappedBy = "aluno")
 	private List<Resposta> respostas = new ArrayList<>();
 	
@@ -91,15 +91,14 @@ public class Aluno {
 	}
 
 	public void setPai(Responsavel pai) {
-		this.pai = pai;
 	}
 
-	public Curso getCurso() {
-		return curso;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public List<Resposta> getRespostas() {
