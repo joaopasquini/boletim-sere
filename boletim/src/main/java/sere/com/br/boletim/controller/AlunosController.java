@@ -24,7 +24,7 @@ public class AlunosController {
 			List<Aluno> alunos = AlunoRepository.findAll();
 			return AlunoDto.converter(alunos);
 		} else {
-			List<Aluno> alunos = AlunoRepository.findByDisciplinaNome(nomeDisciplina);
+			List<Aluno> alunos = AlunoRepository.findByDisciplinasNome(nomeDisciplina);
 			return AlunoDto.converter(alunos);
 		}
 		

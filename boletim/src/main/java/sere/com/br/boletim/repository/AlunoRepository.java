@@ -8,6 +8,6 @@ import sere.com.br.boletim.modelo.Aluno;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
-	List<Aluno> findByDisciplinaNome(String nomeDisciplina);
+	List<Aluno> findByDisciplinasNome(String nomeDisciplina);
 
 }

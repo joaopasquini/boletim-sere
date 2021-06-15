@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -24,8 +25,8 @@ public class Aluno {
 	private StatusAluno status = StatusAluno.INATIVO;
 	@ManyToOne
 	private Responsavel pai;
-	@ManyToOne
-	private Disciplina disciplina;
+	@ManyToMany
+	private List<Disciplina> disciplinas = new ArrayList<>();
 	@OneToMany(mappedBy = "aluno")
 	private List<Resposta> respostas = new ArrayList<>();
 	
@@ -93,20 +94,21 @@ public class Aluno {
 	public void setPai(Responsavel pai) {
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
-
+	
 	public List<Resposta> getRespostas() {
 		return respostas;
 	}
 
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 }
