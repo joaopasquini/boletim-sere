@@ -1,6 +1,6 @@
 package sere.com.br.boletim.modelo;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +14,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Nota {
+public class Aluno {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String titulo;
+	private String nome;
 	private String mensagem;
-	private LocalDateTime dataCriacao = LocalDateTime.now();
 	@Enumerated(EnumType.STRING)
-	private StatusNota status = StatusNota.NAO_RESPONDIDO;
+	private StatusAluno status = StatusAluno.INATIVO;
 	@ManyToOne
-	private Usuario autor;
+	private Responsavel pai;
 	@ManyToOne
 	private Curso curso;
-	@OneToMany(mappedBy = "nota")
+	@OneToMany(mappedBy = "aluno")
 	private List<Resposta> respostas = new ArrayList<>();
 	
 	@Override
@@ -46,7 +45,7 @@ public class Nota {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Nota other = (Nota) obj;
+		Aluno other = (Aluno) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -64,11 +63,11 @@ public class Nota {
 	}
 
 	public String getTitulo() {
-		return titulo;
+		return nome;
 	}
 
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		this.nome = titulo;
 	}
 
 	public String getMensagem() {
@@ -79,28 +78,20 @@ public class Nota {
 		this.mensagem = mensagem;
 	}
 
-	public LocalDateTime getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(LocalDateTime dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
-
-	public StatusNota getStatus() {
+	public StatusAluno getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusNota status) {
+	public void setStatus(StatusAluno status) {
 		this.status = status;
 	}
 
-	public Usuario getAutor() {
-		return autor;
+	public Responsavel getPai() {
+		return pai;
 	}
 
-	public void setAutor(Usuario autor) {
-		this.autor = autor;
+	public void setPai(Responsavel pai) {
+		this.pai = pai;
 	}
 
 	public Curso getCurso() {
