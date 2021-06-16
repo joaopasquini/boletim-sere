@@ -16,11 +16,11 @@ public class Resposta {
 	private String mensagem;
 	
 	@ManyToOne
-	private Nota nota;
+	private Aluno aluno;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 	
 	@ManyToOne
-	private Usuario autor;
+	private Responsavel pai;
 	private Boolean solucao = false;
 
 	@Override
@@ -64,12 +64,12 @@ public class Resposta {
 		this.mensagem = mensagem;
 	}
 
-	public Nota getNota() {
-		return nota;
+	public Aluno getAluno() {
+		return aluno;
 	}
 
-	public void setNota(Nota nota) {
-		this.nota = nota;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 	public LocalDateTime getDataCriacao() {
@@ -80,12 +80,12 @@ public class Resposta {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Usuario getAutor() {
-		return autor;
+	public Responsavel getPai() {
+		return pai;
 	}
 
-	public void setAutor(Usuario autor) {
-		this.autor = autor;
+	public void setPai(Responsavel pai) {
+		this.pai = pai;
 	}
 
 	public Boolean getSolucao() {
