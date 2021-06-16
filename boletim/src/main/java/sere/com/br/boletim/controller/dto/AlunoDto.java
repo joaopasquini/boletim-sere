@@ -15,7 +15,6 @@ public class AlunoDto {
 	public AlunoDto(Aluno aluno) {
 		this.id = aluno.getId();
 		this.titulo = aluno.getTitulo();
-		this.mensagem = aluno.getMensagem();
 	}
 	
 	public Long getId() {

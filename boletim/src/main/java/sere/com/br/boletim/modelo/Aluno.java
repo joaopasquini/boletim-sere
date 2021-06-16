@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -19,13 +20,14 @@ public class Aluno {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String mensagem;
+	@ManyToMany
+	private List<anosRegistrados> anos = new ArrayList<>();
 	@Enumerated(EnumType.STRING)
 	private StatusAluno status = StatusAluno.INATIVO;
 	@ManyToOne
 	private Responsavel pai;
-	@ManyToOne
-	private Curso curso;
+	@ManyToMany
+	private List<Disciplina> disciplinas = new ArrayList<>();
 	@OneToMany(mappedBy = "aluno")
 	private List<Resposta> respostas = new ArrayList<>();
 	
@@ -70,13 +72,6 @@ public class Aluno {
 		this.nome = titulo;
 	}
 
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
 
 	public StatusAluno getStatus() {
 		return status;
@@ -91,17 +86,9 @@ public class Aluno {
 	}
 
 	public void setPai(Responsavel pai) {
-		this.pai = pai;
 	}
 
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
+	
 	public List<Resposta> getRespostas() {
 		return respostas;
 	}
@@ -109,5 +96,18 @@ public class Aluno {
 	public void setRespostas(List<Resposta> respostas) {
 		this.respostas = respostas;
 	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+
+	
+
+	
+
 
 }

@@ -18,13 +18,13 @@ public class AlunosController {
 	private AlunoRepository AlunoRepository;
 	
 	@RequestMapping("/alunos")
-	public List<AlunoDto> lista(String nomeCurso) {
+	public List<AlunoDto> lista(String nomeDisciplina) {
 		
-		if (nomeCurso == null) {
+		if (nomeDisciplina == null) {
 			List<Aluno> alunos = AlunoRepository.findAll();
 			return AlunoDto.converter(alunos);
 		} else {
-			List<Aluno> alunos = AlunoRepository.findByCursoNome(nomeCurso);
+			List<Aluno> alunos = AlunoRepository.findByDisciplinasNome(nomeDisciplina);
 			return AlunoDto.converter(alunos);
 		}
 		
