@@ -12,6 +12,9 @@ public class Disciplina {
 	private Long id;
 	private String nome;
 	private String categoria;
+	private Long ano;
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -60,6 +63,14 @@ public class Disciplina {
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+
+	public Long getAno() {
+		return ano;
+	}
+
+	public void setAno(Long ano) {
+		this.ano = ano;
 	}
 
 }
