@@ -20,14 +20,15 @@ public class Aluno {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String mensagem;
 	@Enumerated(EnumType.STRING)
 	private StatusAluno status = StatusAluno.INATIVO;
 	@ManyToOne
 	private Responsavel pai;
 	@ManyToMany
 	private List<Disciplina> disciplinas = new ArrayList<>();
-	@OneToMany(mappedBy = "aluno")
+	@ManyToMany
+	private List<String> anos_registrados = new ArrayList<>();
+	@OneToMany(mappedBy = "aluno")//
 	private List<Resposta> respostas = new ArrayList<>();
 	
 	@Override
@@ -71,13 +72,6 @@ public class Aluno {
 		this.nome = titulo;
 	}
 
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
 
 	public StatusAluno getStatus() {
 		return status;
@@ -109,6 +103,14 @@ public class Aluno {
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
+	}
+
+	public List<String> getAnos_registrados() {
+		return anos_registrados;
+	}
+
+	public void setAnos_registrados(List<String> anos_registrados) {
+		this.anos_registrados = anos_registrados;
 	}
 
 }
