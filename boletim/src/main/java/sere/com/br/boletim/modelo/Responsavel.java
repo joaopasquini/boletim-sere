@@ -38,6 +38,18 @@ public class Responsavel {
 			return false;
 		return true;
 	}
+	
+	public Responsavel () {
+		
+	}
+	
+	public Responsavel(Long cpf, String nome, String email, String senha) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+	}
 
 	public Long getCpf() {
 		return cpf;

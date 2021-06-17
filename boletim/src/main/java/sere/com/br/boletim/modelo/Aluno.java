@@ -64,7 +64,7 @@ public class Aluno {
 		this.id = id;
 	}
 
-	public String getTitulo() {
+	public String getNome() {
 		return nome;
 	}
 
@@ -84,10 +84,6 @@ public class Aluno {
 	public Responsavel getPai() {
 		return pai;
 	}
-
-	public void setPai(Responsavel pai) {
-	}
-
 	
 	public List<Resposta> getRespostas() {
 		return respostas;

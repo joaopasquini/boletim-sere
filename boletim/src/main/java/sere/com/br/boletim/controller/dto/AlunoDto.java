@@ -9,23 +9,20 @@ import sere.com.br.boletim.modelo.Aluno;
 public class AlunoDto {
 
 	private Long id;
-	private String titulo;
-	private String mensagem;
+	private String nome;
 	
 	public AlunoDto(Aluno aluno) {
 		this.id = aluno.getId();
-		this.titulo = aluno.getTitulo();
+		this.nome = aluno.getNome();
 	}
 	
 	public Long getId() {
 		return id;
 	}
-	public String getTitulo() {
-		return titulo;
+	public String getNome() {
+		return nome;
 	}
-	public String getMensagem() {
-		return mensagem;
-	}
+
 
 	public static List<AlunoDto> converter(List<Aluno> alunos) {
 		return alunos.stream().map(AlunoDto::new).collect(Collectors.toList());
