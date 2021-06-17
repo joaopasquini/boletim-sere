@@ -14,6 +14,7 @@ public class Nota {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long valor;
+	private String bimestre;
 	
 	
 	@ManyToOne
@@ -39,6 +40,12 @@ public class Nota {
 	}
 	public void setMateria(Disciplina materia) {
 		this.materia = materia;
+	}
+	public String getBimestre() {
+		return bimestre;
+	}
+	public void setBimestre(String bimestre) {
+		this.bimestre = bimestre;
 	}
 	
 	
